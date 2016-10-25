@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{6E922F9A-295F-447C-A257-EEFA675EF3F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{AA5DA9EB-1CD8-4F07-AF38-764E86D1051B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0DDBE193-A132-48C0-88D2-C88D4972C06D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{F0E61EF5-BF12-4ECC-8CF5-FCDE51DD80B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{CA3C9FA8-7818-4746-9757-40DF7B5FF0E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{D8595559-148F-47C8-898F-FF67BCCD4F9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{4AE341B8-E728-423C-9539-F7BB65689346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beerino.MVC", "Beerino.MVC\Beerino.MVC.csproj", "{2CA1811D-8C77-4391-8A92-FA4586140D51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beerino.Domain", "Beerino.Domain\Beerino.Domain.csproj", "{03B4A7DA-AD46-4983-B67E-3B2B4696B37C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beerino.Infra.Data", "Beerino.Infra.Data\Beerino.Infra.Data.csproj", "{986A98E5-E84D-4D34-9AA6-9989F86F2F23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beerino.Application", "Beerino.Application\Beerino.Application.csproj", "{B2CD3009-9AB1-4E55-9E84-B6D887DDE84E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CA1811D-8C77-4391-8A92-FA4586140D51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA1811D-8C77-4391-8A92-FA4586140D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA1811D-8C77-4391-8A92-FA4586140D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA1811D-8C77-4391-8A92-FA4586140D51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B4A7DA-AD46-4983-B67E-3B2B4696B37C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B4A7DA-AD46-4983-B67E-3B2B4696B37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B4A7DA-AD46-4983-B67E-3B2B4696B37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B4A7DA-AD46-4983-B67E-3B2B4696B37C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{986A98E5-E84D-4D34-9AA6-9989F86F2F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{986A98E5-E84D-4D34-9AA6-9989F86F2F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{986A98E5-E84D-4D34-9AA6-9989F86F2F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{986A98E5-E84D-4D34-9AA6-9989F86F2F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2CD3009-9AB1-4E55-9E84-B6D887DDE84E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2CD3009-9AB1-4E55-9E84-B6D887DDE84E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2CD3009-9AB1-4E55-9E84-B6D887DDE84E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2CD3009-9AB1-4E55-9E84-B6D887DDE84E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D8595559-148F-47C8-898F-FF67BCCD4F9C} = {CA3C9FA8-7818-4746-9757-40DF7B5FF0E5}
+		{4AE341B8-E728-423C-9539-F7BB65689346} = {CA3C9FA8-7818-4746-9757-40DF7B5FF0E5}
+		{2CA1811D-8C77-4391-8A92-FA4586140D51} = {6E922F9A-295F-447C-A257-EEFA675EF3F3}
+		{03B4A7DA-AD46-4983-B67E-3B2B4696B37C} = {F0E61EF5-BF12-4ECC-8CF5-FCDE51DD80B7}
+		{986A98E5-E84D-4D34-9AA6-9989F86F2F23} = {D8595559-148F-47C8-898F-FF67BCCD4F9C}
+		{B2CD3009-9AB1-4E55-9E84-B6D887DDE84E} = {0DDBE193-A132-48C0-88D2-C88D4972C06D}
+	EndGlobalSection
+EndGlobal
