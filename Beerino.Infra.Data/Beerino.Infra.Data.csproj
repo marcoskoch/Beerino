@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\BeerinoContext.cs" />
+    <Compile Include="EntityConfig\BeerConfiguration.cs" />
     <Compile Include="EntityConfig\BeerinoConfiguration.cs" />
+    <Compile Include="EntityConfig\TaskBeerConfiguration.cs" />
     <Compile Include="EntityConfig\UserConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

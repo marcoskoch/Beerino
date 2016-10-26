@@ -1,13 +1,12 @@
 ﻿namespace Beerino.Domain.Entities
 {
-    public class BeerinoUser
+    public class BeerinoUser : EntityBase
     {
         public int BeerinoUserID { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string Revenue { get; set; }
-        public bool Public { get; set; }
-        public int UserId { get; set; }
+        public int UserID { get; set; }
         public virtual User User { get; set; }
+        public int? BeerID { get; set; }
+        public virtual Beer Beer { get; set; }
     }
 }

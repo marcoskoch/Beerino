@@ -17,6 +17,8 @@ namespace Beerino.Infra.Data.Context
 
         public DbSet<User> User { get; set; }
         public DbSet<BeerinoUser> BeerinoUser { get; set; }
+        public DbSet<Beer> Beer { get; set; }
+        public DbSet<TaskBeer> TaskBeer { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -36,20 +38,22 @@ namespace Beerino.Infra.Data.Context
 
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new BeerinoConfiguration());
+            modelBuilder.Configurations.Add(new BeerConfiguration());
+            modelBuilder.Configurations.Add(new TaskBeerConfiguration());
         }
 
         public override int SaveChanges()
         {
-            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DateOfRegister") != null))
+            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("CreationDate") != null))
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Property("DateOfRegister").CurrentValue = DateTime.Now;
+                    entry.Property("CreationDate").CurrentValue = DateTime.Now;
                 }
 
                 if (entry.State == EntityState.Modified)
                 {
-                    entry.Property("DateOfRegister").IsModified = false;
+                    entry.Property("CreationDate").IsModified = false;
                 }
             }
 

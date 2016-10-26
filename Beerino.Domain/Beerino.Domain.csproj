@@ -30,7 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\Beer.cs" />
     <Compile Include="Entities\BeerinoUser.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\TaskBeer.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -15,7 +15,12 @@ namespace Beerino.Infra.Data.EntityConfig
 
             HasRequired(p => p.User)
                 .WithMany()
-                .HasForeignKey(p => p.UserId);
+                .HasForeignKey(p => p.UserID);
+
+            HasOptional(p => p.Beer)
+                .WithMany()
+                .HasForeignKey(p => p.BeerID);
+
         }
     }
 }
