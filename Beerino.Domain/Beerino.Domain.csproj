@@ -35,10 +35,14 @@
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\TaskBeer.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Interfaces\IBeerinoUserRepository.cs" />
+    <Compile Include="Interfaces\IBeerRepository.cs" />
+    <Compile Include="Interfaces\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\ITaskBeerRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
