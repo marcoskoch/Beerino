@@ -1,5 +1,5 @@
 ﻿using Beerino.Domain.Entities;
-using Beerino.Domain.Interfaces;
+using Beerino.Domain.Interfaces.Repositories;
 
 namespace Beerino.Infra.Data.Repositories
 {

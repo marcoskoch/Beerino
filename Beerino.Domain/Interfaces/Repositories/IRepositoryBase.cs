@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Beerino.Domain.Interfaces
+namespace Beerino.Domain.Interfaces.Repositories
 {
     public interface IRepositoryBase<TEntity> where TEntity : class
     {

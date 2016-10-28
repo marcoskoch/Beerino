@@ -1,4 +1,4 @@
-﻿using Beerino.Domain.Interfaces;
+﻿using Beerino.Domain.Interfaces.Repositories;
 using Beerino.Infra.Data.Context;
 using System;
 using System.Collections.Generic;

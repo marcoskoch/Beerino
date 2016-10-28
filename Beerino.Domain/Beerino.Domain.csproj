@@ -35,16 +35,21 @@
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\TaskBeer.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Interfaces\IBeerinoUserRepository.cs" />
-    <Compile Include="Interfaces\IBeerRepository.cs" />
-    <Compile Include="Interfaces\IRepositoryBase.cs" />
-    <Compile Include="Interfaces\ITaskBeerRepository.cs" />
-    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBeerinoUserRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBeerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\ITaskBeerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
+    <Compile Include="Interfaces\Services\IBeerinoUserService.cs" />
+    <Compile Include="Interfaces\Services\IBeerService.cs" />
+    <Compile Include="Interfaces\Services\IServiceBase.cs" />
+    <Compile Include="Interfaces\Services\ITaskBeerService.cs" />
+    <Compile Include="Interfaces\Services\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
