@@ -69,12 +69,21 @@ namespace Beerino.MVC.App_Start
         {
             kernel.Bind(typeof(IAppServiceBase<>)).To(typeof(AppServiceBase<>));
             kernel.Bind<IUserAppService>().To<UserAppService>();
+            kernel.Bind<IBeerinoUserAppService>().To<BeerinoUserAppService>();
+            kernel.Bind<IBeerAppService>().To<BeerAppService>();
+            kernel.Bind<ITaskBeerAppService>().To<TaskBeerAppService>();
 
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
             kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<IBeerinoUserService>().To<BeerinoUserService>();
+            kernel.Bind<IBeerService>().To<BeerService>();
+            kernel.Bind<ITaskBeerService>().To<TaskBeerService>();
 
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             kernel.Bind<IUserRepository>().To<UserRepository>();
+            kernel.Bind<IBeerinoUserRepository>().To<BeerinoUserRepository>();
+            kernel.Bind<IBeerRepository>().To<BeerRepository>();
+            kernel.Bind<ITaskBeerRepository>().To<TaskBeerRepository>();
         }        
     }
 }

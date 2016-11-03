@@ -31,9 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AppServiceBase.cs" />
+    <Compile Include="BeerAppService.cs" />
+    <Compile Include="BeerinoUserAppService.cs" />
     <Compile Include="Interface\IAppServiceBase.cs" />
+    <Compile Include="Interface\IBeerAppService.cs" />
+    <Compile Include="Interface\IBeerinoUserAppService.cs" />
+    <Compile Include="Interface\ITaskBeerAppService.cs" />
     <Compile Include="Interface\IUserAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskBeerAppService.cs" />
     <Compile Include="UserAppService.cs" />
   </ItemGroup>
   <ItemGroup>

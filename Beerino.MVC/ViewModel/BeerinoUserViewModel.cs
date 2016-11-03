@@ -8,8 +8,12 @@ namespace Beerino.MVC.ViewModel
         [Key]
         public int BeerinoUserID { get; set; }
         public string Name { get; set; }
+
+        [DisplayName("Usuário")]
         public int UserID { get; set; }
         public virtual UserViewModel User { get; set; }
+
+        [DisplayName("Cerveja")]
         public int? BeerID { get; set; }
         public virtual BeerViewModel Beer { get; set; }
 

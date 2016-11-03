@@ -46,7 +46,10 @@
     <Compile Include="Interfaces\Services\ITaskBeerService.cs" />
     <Compile Include="Interfaces\Services\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BeerinoUserService.cs" />
+    <Compile Include="Services\BeerService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\TaskBeerService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup />
