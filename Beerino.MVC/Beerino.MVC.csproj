@@ -172,6 +172,7 @@
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Controllers\TaskBeerController.cs" />
     <Compile Include="Controllers\BeerController.cs" />
     <Compile Include="Controllers\BeerinoUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -236,10 +237,10 @@
     <Content Include="Views\BeerinoUser\Edit.cshtml" />
     <Content Include="Views\BeerinoUser\Create.cshtml" />
     <Content Include="Views\Beer\Index.cshtml" />
-    <Content Include="Views\Beer\Create.cshtml" />
     <Content Include="Views\Beer\Edit.cshtml" />
     <Content Include="Views\Beer\Delete.cshtml" />
     <Content Include="Views\Beer\Details.cshtml" />
+    <Content Include="Views\Beer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
