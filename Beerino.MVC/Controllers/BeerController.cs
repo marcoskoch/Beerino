@@ -19,6 +19,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: Beer
+        [Authorize]
         public ActionResult Index()
         {
             var beerModelView = Mapper.Map<IEnumerable<Beer>, IEnumerable<BeerViewModel>>(_beerApp.GetAll());
@@ -27,6 +28,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: Beer/Details/5
+        [Authorize]
         public ActionResult Details(int id)
         {
             var beer = _beerApp.GetById(id);
@@ -36,6 +38,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: Beer/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.UserID = new SelectList(_userApp.GetAll(), "UserID", "Name");
@@ -46,6 +49,7 @@ namespace Beerino.MVC.Controllers
         // POST: Beer/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(BeerViewModel beer)
         {
             if (ModelState.IsValid)
@@ -62,6 +66,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: Beer/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var beer = _beerApp.GetById(id);
@@ -75,6 +80,7 @@ namespace Beerino.MVC.Controllers
         // POST: Beer/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit(BeerViewModel beer)
         {
             if (ModelState.IsValid)
@@ -91,6 +97,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: Beer/Delete/5
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var beer = _beerApp.GetById(id);
@@ -102,6 +109,7 @@ namespace Beerino.MVC.Controllers
         // POST: Beer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             var beer = _beerApp.GetById(id);

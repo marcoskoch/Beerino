@@ -21,6 +21,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: BeerinoUser
+        [Authorize]
         public ActionResult Index()
         {
             var beerinoUserViewModel = Mapper.Map<IEnumerable<BeerinoUser>, IEnumerable<BeerinoUserViewModel>>(_beerinoUserApp.GetAll());
@@ -29,6 +30,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: BeerinoUser/Details/5
+        [Authorize]
         public ActionResult Details(int id)
         {
             var beerinoUser = _beerinoUserApp.GetById(id);
@@ -38,6 +40,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: BeerinoUser/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.UserID = new SelectList(_userApp.GetAll(), "UserID", "Name");
@@ -49,6 +52,7 @@ namespace Beerino.MVC.Controllers
         // POST: BeerinoUser/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(BeerinoUserViewModel beerino)
         {
             if (ModelState.IsValid)
@@ -66,6 +70,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: BeerinoUser/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var beerino = _beerinoUserApp.GetById(id);
@@ -80,6 +85,7 @@ namespace Beerino.MVC.Controllers
         // POST: BeerinoUser/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit(BeerinoUserViewModel beerino)
         {
             if (ModelState.IsValid)
@@ -97,6 +103,7 @@ namespace Beerino.MVC.Controllers
         }
 
         // GET: BeerinoUser/Delete/5
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var beerino = _beerinoUserApp.GetById(id);
@@ -108,6 +115,7 @@ namespace Beerino.MVC.Controllers
         // POST: BeerinoUser/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             var beerino = _beerinoUserApp.GetById(id);
