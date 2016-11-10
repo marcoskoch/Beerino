@@ -19,6 +19,7 @@ namespace TaskBeerino.MVC.Controllers
         }
 
         // GET: TaskBeer
+        [Authorize]
         public ActionResult Index()
         {
             var taskBeerModelView = Mapper.Map<IEnumerable<TaskBeer>, IEnumerable<TaskBeerViewModel>>(_taskBeerApp.GetAll());
@@ -27,6 +28,7 @@ namespace TaskBeerino.MVC.Controllers
         }
 
         // GET: TaskBeer/Details/5
+        [Authorize]
         public ActionResult Details(int id)
         {
             var taskBeer = _taskBeerApp.GetById(id);
@@ -36,6 +38,7 @@ namespace TaskBeerino.MVC.Controllers
         }
 
         // GET: TaskBeer/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.BeerID = new SelectList(_beerApp.GetAll(), "BeerID", "Name");
@@ -46,6 +49,7 @@ namespace TaskBeerino.MVC.Controllers
         // POST: TaskBeer/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(TaskBeerViewModel taskBeer)
         {
             if (ModelState.IsValid)
@@ -62,6 +66,7 @@ namespace TaskBeerino.MVC.Controllers
         }
 
         // GET: TaskBeer/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var taskBeer = _taskBeerApp.GetById(id);
@@ -75,6 +80,7 @@ namespace TaskBeerino.MVC.Controllers
         // POST: TaskBeer/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit(TaskBeerViewModel taskBeer)
         {
             if (ModelState.IsValid)
@@ -91,6 +97,7 @@ namespace TaskBeerino.MVC.Controllers
         }
 
         // GET: TaskBeer/Delete/5
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var taskBeer = _taskBeerApp.GetById(id);
@@ -102,6 +109,7 @@ namespace TaskBeerino.MVC.Controllers
         // POST: TaskBeer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             var taskBeer = _taskBeerApp.GetById(id);

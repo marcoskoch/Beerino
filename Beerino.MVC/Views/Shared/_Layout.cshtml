@@ -23,6 +23,16 @@
                     <li>@Html.ActionLink("Beerinos", "Index", "BeerinoUser")</li>
                     <li>@Html.ActionLink("Cervejas", "Index", "Beer")</li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                    }
+                </ul>
             </div>
         </div>
     </div>

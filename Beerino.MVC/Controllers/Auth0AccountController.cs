@@ -34,7 +34,7 @@ namespace Beerino.MVC.Controllers
                                     "you configured UseCookieAuthentication and UseExternalSignInCookie in the OWIN Startup class. " +
                                     "Also make sure you are not calling setting the callbackOnLocationHash option on the JavaScript login widget.");
             }
-
+            
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, CreateIdentity(externalIdentity));
             return RedirectToLocal(returnUrl);
         }

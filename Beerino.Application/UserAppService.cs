@@ -17,6 +17,11 @@ namespace Beerino.Application
             _userService = userService;
         }
 
+        public int GetIdByEmail(string email)
+        {
+            return _userService.GetIdByEmail(email);
+        }
+
         public IEnumerable<User> getSpecialUsers()
         {
             return _userService.getSpecialUsers(_userService.GetAll());

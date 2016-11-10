@@ -36,7 +36,7 @@ namespace Beerino.MVC.Controllers
             var beerinoUser = _beerinoUserApp.GetById(id);
             var beerinoUserViewModel = Mapper.Map<BeerinoUser, BeerinoUserViewModel>(beerinoUser);
 
-            return View();
+            return View(beerinoUserViewModel);
         }
 
         // GET: BeerinoUser/Create

@@ -20,6 +20,7 @@ namespace Beerino.MVC.ViewModel
 
         [DisplayName("Receita")]
         [Required(ErrorMessage = "Preencha o campo Receita")]
+        [DataType(DataType.MultilineText)]
         public string Revenue { get; set; }
 
         [ScaffoldColumn(false)]

@@ -6,5 +6,6 @@ namespace Beerino.Domain.Interfaces.Services
     public interface IUserService : IServiceBase<User>
     {
         IEnumerable<User> getSpecialUsers(IEnumerable<User> users);
+        int GetIdByEmail(string email);
     }
 }

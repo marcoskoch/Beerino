@@ -16,6 +16,7 @@ namespace Beerino.MVC.Controllers
             _userApp = userApp;
         }
 
+        [Authorize]
         public ActionResult Index()
         {
             var userViewModel = Mapper.Map<IEnumerable<User>, IEnumerable<UserViewModel>>(_userApp.GetAll());
@@ -23,6 +24,7 @@ namespace Beerino.MVC.Controllers
             return View(userViewModel);
         }
 
+        [Authorize]
         public ActionResult Especiais()
         {
             var userViewModel = Mapper.Map<IEnumerable<User>, IEnumerable<UserViewModel>>(_userApp.getSpecialUsers());
@@ -30,6 +32,7 @@ namespace Beerino.MVC.Controllers
             return View(userViewModel);
         }
 
+        [Authorize]
         public ActionResult Details(int id)
         {
             var user = _userApp.GetById(id);
@@ -38,6 +41,7 @@ namespace Beerino.MVC.Controllers
             return View(userViewModel);
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +49,7 @@ namespace Beerino.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(UserViewModel user)
         {
             if (ModelState.IsValid)
@@ -58,6 +63,7 @@ namespace Beerino.MVC.Controllers
             return View(user);
         }
 
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var user = _userApp.GetById(id);
@@ -68,6 +74,7 @@ namespace Beerino.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit(UserViewModel user)
         {
             if (ModelState.IsValid)
@@ -81,6 +88,7 @@ namespace Beerino.MVC.Controllers
             return View(user);
         }
 
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var user = _userApp.GetById(id);
@@ -91,6 +99,7 @@ namespace Beerino.MVC.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             var user = _userApp.GetById(id);

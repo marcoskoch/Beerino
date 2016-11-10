@@ -3,6 +3,8 @@ using Beerino.Application.Interface;
 using Beerino.Domain.Entities;
 using Beerino.MVC.ViewModel;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Web.Mvc;
 
 namespace Beerino.MVC.Controllers
@@ -42,6 +44,11 @@ namespace Beerino.MVC.Controllers
         public ActionResult Create()
         {
             ViewBag.UserID = new SelectList(_userApp.GetAll(), "UserID", "Name");
+
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var EmailAddress = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+            int userId = _userApp.GetIdByEmail(EmailAddress);
 
             return View();
         }
