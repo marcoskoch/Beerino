@@ -123,5 +123,24 @@ namespace Beerino.MVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult getTaskBeer(string data)
+        {
+            /*
+             *  Dar split no data, separar BeerinoUserId e TaskAtual;
+             *  Se TaskAtual for 0, busca primeira Task da ordem
+             *  Se não buscar proxima task depois da taskatual
+             *  Se não tiver cerveja cadastrada solicitar cadastro
+             */
+
+            // TaskId/Tempo/TemperaturaMinima/TemperaturaMaxima
+            return Content("01/20/01/03");
+        }
+
+        public ActionResult setTemperature(string data)
+        {
+            /* Adiciona a temperatura atual do Beerino */
+            return Content("");
+        }
     }
 }
