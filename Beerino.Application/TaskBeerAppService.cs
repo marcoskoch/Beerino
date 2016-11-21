@@ -13,5 +13,10 @@ namespace Beerino.Application
         {
             _taskBeerService = taskBeerService;
         }
+
+        public TaskBeer getNextTaskBeer(int beerId, int actualTaskBeerOrdem)
+        {
+            return _taskBeerService.getNextTaskBeer(_taskBeerService.GetAll(), beerId, actualTaskBeerOrdem);
+        }
     }
 }

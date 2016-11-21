@@ -2,7 +2,10 @@
 using Beerino.Application.Interface;
 using Beerino.Domain.Entities;
 using Beerino.MVC.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Web.Mvc;
 
 namespace Beerino.MVC.Controllers
@@ -12,12 +15,14 @@ namespace Beerino.MVC.Controllers
         private readonly IBeerinoUserAppService _beerinoUserApp;
         private readonly IUserAppService _userApp;
         private readonly IBeerAppService _beerApp;
+        private readonly ITaskBeerAppService _taskBeerApp;
 
-        public BeerinoUserController(IBeerinoUserAppService beerinoUserApp, IUserAppService userApp, IBeerAppService beerApp)
+        public BeerinoUserController(IBeerinoUserAppService beerinoUserApp, IUserAppService userApp, IBeerAppService beerApp, ITaskBeerAppService taskBeerApp)
         {
             _beerinoUserApp = beerinoUserApp;
             _userApp = userApp;
             _beerApp = beerApp;
+            _taskBeerApp = taskBeerApp;
         }
 
         // GET: BeerinoUser
@@ -124,17 +129,39 @@ namespace Beerino.MVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult getTaskBeer(string data)
+        public ActionResult getTaskBeer(string id)
         {
             /*
+             * Recebe parametros do seguinte formato BeerinoID-TaskAtualID
+             * http://localhost:53662/BeerinoUser/getTaskBeer/1-0
              *  Dar split no data, separar BeerinoUserId e TaskAtual;
              *  Se TaskAtual for 0, busca primeira Task da ordem
              *  Se não buscar proxima task depois da taskatual
              *  Se não tiver cerveja cadastrada solicitar cadastro
              */
 
+            var listStrLineElements = id.Split('-').ToList();
+
+            TaskBeer task = new TaskBeer();
+            var beerId = _beerinoUserApp.GetById(Convert.ToInt32(listStrLineElements[0])).BeerID;
+            int actualTaskBeerOrder = Convert.ToInt32(listStrLineElements[1]);
+            
+            if (beerId == null)
+            {
+                return Content("Cadastrar Cernveja no Beerino");
+            }
+            else
+            {
+                task = _taskBeerApp.getNextTaskBeer((int)beerId, actualTaskBeerOrder);
+            }
+
+            if (task == null)
+            {
+                return Content("Fim dos Processos");
+            }
+
             // TaskId/Tempo/TemperaturaMinima/TemperaturaMaxima
-            return Content("01/20/01/03");
+            return Content($"{task.TaskBeerID}/{task.Time}/{task.Temperature - 2}/{task.Temperature + 2}");
         }
 
         public ActionResult setTemperature(string data)

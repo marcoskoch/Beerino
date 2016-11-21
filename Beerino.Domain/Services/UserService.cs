@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Beerino.Domain.Entities;
 using Beerino.Domain.Interfaces.Repositories;
 using Beerino.Domain.Interfaces.Services;
