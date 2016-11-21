@@ -280,9 +280,9 @@
     <Content Include="Views\Account\Claims.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\TaskBeer\Index.cshtml" />
-    <Content Include="Views\TaskBeer\Create.cshtml" />
     <Content Include="Views\TaskBeer\Delete.cshtml" />
     <Content Include="Views\TaskBeer\Details.cshtml" />
+    <Content Include="Views\TaskBeer\Create.cshtml" />
     <Content Include="Views\TaskBeer\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>

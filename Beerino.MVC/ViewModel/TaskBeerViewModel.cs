@@ -19,8 +19,8 @@ namespace Beerino.MVC.ViewModel
         [DisplayName("Ordem")]
         [Required(ErrorMessage = "Preencha o campo Ordem")]
         public int Order { get; set; }
-
-        [ScaffoldColumn(false)]
+        
+        [DisplayName("Cerveja")]
         public int BeerID { get; set; }
         public virtual BeerViewModel Beer { get; set; }
 
