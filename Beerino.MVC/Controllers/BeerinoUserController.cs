@@ -161,7 +161,7 @@ namespace Beerino.MVC.Controllers
             }
 
             // TaskId/Tempo/TemperaturaMinima/TemperaturaMaxima
-            return Content($"{task.TaskBeerID}/{task.Time}/{task.Temperature - 2}/{task.Temperature + 2}");
+            return Content($"{task.TaskBeerID}/{TimeSpan.FromMinutes(task.Time).TotalMilliseconds}/{task.Temperature - 2}/{task.Temperature + 2}");
         }
 
         public ActionResult setTemperature(string data)
