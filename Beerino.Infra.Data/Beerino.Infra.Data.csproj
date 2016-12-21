@@ -62,7 +62,6 @@
     <Compile Include="Repositories\TaskBeerRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

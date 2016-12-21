@@ -8,5 +8,6 @@
         public virtual User User { get; set; }
         public int? BeerID { get; set; }
         public virtual Beer Beer { get; set; }
+        public int ActualTemperature { get; set; }
     }
 }

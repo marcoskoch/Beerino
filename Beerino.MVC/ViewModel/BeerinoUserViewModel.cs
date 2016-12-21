@@ -17,6 +17,9 @@ namespace Beerino.MVC.ViewModel
         public int? BeerID { get; set; }
         public virtual BeerViewModel Beer { get; set; }
 
+        [DisplayName("Temperatura Atual")]
+        public int ActualTemperature { get; set; }
+
         [DisplayName("Disponível?")]
         public bool Active { get; set; }
     }

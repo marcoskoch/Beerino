@@ -164,9 +164,11 @@ namespace Beerino.MVC.Controllers
             return Content($"{task.TaskBeerID}/{TimeSpan.FromMinutes(task.Time).TotalMilliseconds}/{task.Temperature - 2}/{task.Temperature + 2}");
         }
 
-        public ActionResult setTemperature(string data)
+        public ActionResult setTemperature(string id)
         {
-            /* Adiciona a temperatura atual do Beerino */
+            /* Adiciona a temperatura atual do Beerino 
+             * http://localhost:53662/BeerinoUser/getTaskBeer/1-0
+             */
             return Content("");
         }
     }
