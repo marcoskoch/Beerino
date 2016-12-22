@@ -18,7 +18,9 @@ namespace Beerino.Domain.Services
 
         public int GetIdByEmail(string email)
         {
-            return _userRepository.GetIdByEmail(email);
+            var user = _userRepository.GetIdByEmail(email);
+            
+            return user == null ? 0 : user.UserID;
         }
 
         public IEnumerable<User> getSpecialUsers(IEnumerable<User> users)

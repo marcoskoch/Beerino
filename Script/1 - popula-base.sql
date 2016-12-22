@@ -18,5 +18,5 @@ INSERT INTO TaskBeer ([Time], Temperature, [Order], BeerID, Active)
 INSERT INTO TaskBeer ([Time], Temperature, [Order], BeerID, Active)
 	VALUES (20, -3, 3, 1, 1);
 
-INSERT INTO BeerinoUser (Name, UserID, BeerID, Active)
-	VALUES ('Garagem', 1, 1, 1);
+INSERT INTO BeerinoUser (Name, UserID, BeerID, Active, ActualTemperature)
+	VALUES ('Garagem', 1, 1, 1, 0);

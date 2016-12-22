@@ -6,10 +6,9 @@ namespace Beerino.Infra.Data.Repositories
 {
     public class UserRepository : RepositoryBase<User>, IUserRepository
     {
-        public int GetIdByEmail(string email)
+        public User GetIdByEmail(string email)
         {
-            var user = Db.User.Where(u => u.Email == email).Single();
-            return user.UserID;
+            return Db.User.Where(u => u.Email == email).FirstOrDefault();
         }
     }
 }

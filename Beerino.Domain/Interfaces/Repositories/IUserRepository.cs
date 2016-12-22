@@ -4,6 +4,6 @@ namespace Beerino.Domain.Interfaces.Repositories
 {
     public interface IUserRepository : IRepositoryBase<User>
     {
-        int GetIdByEmail(string email);
+        User GetIdByEmail(string email);
     }
 }
