@@ -1,8 +1,5 @@
-# Beerino
-
 O que é Beerino?
 =====================
-The Equinox Project is a open-source project written in .NET Core
 
 É um equipamento fundamental para fabricação de cerveja caseira.
 Auxilia no controle da fermentação e maturação deixando sua geladeira ou freezer com a temperatura sempre no recomendado pelas receitas.
@@ -18,7 +15,7 @@ Auxilia no controle da fermentação e maturação deixando sua geladeira ou fre
 
 ##Architecture:
 
-- Arquitetura com preocupações de separação de responsabilidade, SOLID e Clean Code
+- Arquitetura com preocupação de separação de responsabilidades, SOLID e Clean Code
 - Domain Driven Design (Layers and Domain Model Pattern)
 
 =====================
