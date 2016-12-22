@@ -232,6 +232,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagens\cerveja-documentário-artesanal.jpg" />
+    <Content Include="Imagens\ceva.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -275,7 +277,6 @@
     <Content Include="Views\Beer\Index.cshtml" />
     <Content Include="Views\Beer\Edit.cshtml" />
     <Content Include="Views\Beer\Delete.cshtml" />
-    <Content Include="Views\Beer\Details.cshtml" />
     <Content Include="Views\Beer\Create.cshtml" />
     <Content Include="Views\Account\Claims.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -284,6 +285,7 @@
     <Content Include="Views\TaskBeer\Details.cshtml" />
     <Content Include="Views\TaskBeer\Create.cshtml" />
     <Content Include="Views\TaskBeer\Edit.cshtml" />
+    <Content Include="Views\Beer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
