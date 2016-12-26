@@ -2,6 +2,7 @@
 using Beerino.Application.Interface;
 using Beerino.Domain.Entities;
 using Beerino.MVC.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -43,14 +44,7 @@ namespace Beerino.MVC.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.UserID = new SelectList(_userApp.GetAll(), "UserID", "Name");
-
-            var claimsIdentity = User.Identity as ClaimsIdentity;
-            var EmailAddress = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-
-            int userId = _userApp.GetIdByEmail(EmailAddress);
-
-            return View();
+            return View(new BeerViewModel());
         }
 
         // POST: Beer/Create
@@ -61,6 +55,10 @@ namespace Beerino.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                var claimsIdentity = User.Identity as ClaimsIdentity;
+                var userId = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "user.id")?.Value;
+                beer.UserID = Convert.ToInt32(userId);
+
                 var beerDomain = Mapper.Map<BeerViewModel, Beer>(beer);
                 _beerApp.Add(beerDomain);
 

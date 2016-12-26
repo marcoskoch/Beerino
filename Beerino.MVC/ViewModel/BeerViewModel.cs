@@ -23,7 +23,7 @@ namespace Beerino.MVC.ViewModel
         [DataType(DataType.MultilineText)]
         public string Revenue { get; set; }
 
-        [ScaffoldColumn(false)]
+        [DisplayName("Pública?")]
         public bool Public { get; set; }
 
         [ScaffoldColumn(false)]
@@ -34,5 +34,11 @@ namespace Beerino.MVC.ViewModel
 
         [DisplayName("Disponível?")]
         public bool Active { get; set; }
+
+        public BeerViewModel()
+        {
+            Active = true;
+            Public = true;
+        }
     }
 }

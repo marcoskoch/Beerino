@@ -51,18 +51,10 @@ namespace Beerino.MVC.Controllers
         {
             var claimsIdentity = User.Identity as ClaimsIdentity;
             var EmailAddress = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-            int userId = _userApp.GetIdByEmail(EmailAddress);
-
-            ViewBag.UserID = new SelectList(_userApp.GetAll(), "UserID", "Name");
+            
             ViewBag.BeerID = new SelectList(_beerApp.GetAll(), "BeerID", "Name");
 
-            var beerino = new BeerinoUserViewModel()
-            {
-                Active = true,
-                UserID = userId
-            };
-
-            return View(beerino);
+            return View(new BeerinoUserViewModel());
         }
 
         // POST: BeerinoUser/Create
@@ -73,6 +65,10 @@ namespace Beerino.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                var claimsIdentity = User.Identity as ClaimsIdentity;
+                var userId = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "user.id")?.Value;
+                beerino.UserID = Convert.ToInt32(userId);
+
                 var beerinoUserDomain = Mapper.Map<BeerinoUserViewModel, BeerinoUser>(beerino);
                 _beerinoUserApp.Add(beerinoUserDomain);
 
@@ -156,7 +152,7 @@ namespace Beerino.MVC.Controllers
             TaskBeer task = new TaskBeer();
             var beerId = _beerinoUserApp.GetById(Convert.ToInt32(listStrLineElements[0])).BeerID;
             int actualTaskBeerOrder = Convert.ToInt32(listStrLineElements[1]);
-            
+
             if (beerId == null)
             {
                 return Content("Cadastrar Cernveja no Beerino");

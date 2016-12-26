@@ -53,7 +53,6 @@ namespace Beerino.MVC.Controllers
 
             newUser.Name = claimsIdentity.Name;
             newUser.Email = EmailAddress;
-            newUser.Active = true;
             
             return View(newUser);
         }

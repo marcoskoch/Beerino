@@ -4,18 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Beerinos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adicionar Beerino", "Create", null, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BeerID)
@@ -33,18 +30,15 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Name)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Beer.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Active)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.BeerinoUserID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.BeerinoUserID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.BeerinoUserID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.BeerinoUserID }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BeerinoUserID }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BeerinoUserID }, new { @class = "btn btn-warning" })
             </td>
         </tr>
                     }

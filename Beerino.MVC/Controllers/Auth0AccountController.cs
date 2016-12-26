@@ -54,6 +54,7 @@ namespace Beerino.MVC.Controllers
                 return RedirectToAction("Create", "User");
 
             userLogado.AddClaim(new Claim("user.id", userId.ToString()));
+
             return RedirectToLocal(returnUrl);
         }
 

@@ -28,5 +28,10 @@ namespace Beerino.MVC.ViewModel
 
         [DisplayName("Disponível?")]
         public bool Active { get; set; }
+
+        public UserViewModel()
+        {
+            Active = true;
+        }
     }
 }

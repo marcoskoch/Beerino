@@ -273,11 +273,8 @@
     <Content Include="Views\BeerinoUser\Delete.cshtml" />
     <Content Include="Views\BeerinoUser\Details.cshtml" />
     <Content Include="Views\BeerinoUser\Edit.cshtml" />
-    <Content Include="Views\BeerinoUser\Create.cshtml" />
     <Content Include="Views\Beer\Index.cshtml" />
-    <Content Include="Views\Beer\Edit.cshtml" />
     <Content Include="Views\Beer\Delete.cshtml" />
-    <Content Include="Views\Beer\Create.cshtml" />
     <Content Include="Views\Account\Claims.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\TaskBeer\Index.cshtml" />
@@ -286,6 +283,9 @@
     <Content Include="Views\TaskBeer\Create.cshtml" />
     <Content Include="Views\TaskBeer\Edit.cshtml" />
     <Content Include="Views\Beer\Details.cshtml" />
+    <Content Include="Views\Beer\Edit.cshtml" />
+    <Content Include="Views\Beer\Create.cshtml" />
+    <Content Include="Views\BeerinoUser\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

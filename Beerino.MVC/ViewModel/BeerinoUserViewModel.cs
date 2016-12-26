@@ -8,8 +8,8 @@ namespace Beerino.MVC.ViewModel
         [Key]
         public int BeerinoUserID { get; set; }
         public string Name { get; set; }
-
-        [DisplayName("Usuário")]
+        
+        [ScaffoldColumn(false)]
         public int UserID { get; set; }
         public virtual UserViewModel User { get; set; }
 
@@ -17,10 +17,15 @@ namespace Beerino.MVC.ViewModel
         public int? BeerID { get; set; }
         public virtual BeerViewModel Beer { get; set; }
 
-        [DisplayName("Temperatura Atual")]
+        [ScaffoldColumn(false)]
         public int ActualTemperature { get; set; }
 
         [DisplayName("Disponível?")]
         public bool Active { get; set; }
+
+        public BeerinoUserViewModel()
+        {
+            Active = true;
+        }
     }
 }

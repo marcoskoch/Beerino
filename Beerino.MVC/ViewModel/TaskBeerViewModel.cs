@@ -26,5 +26,10 @@ namespace Beerino.MVC.ViewModel
 
         [DisplayName("Disponível?")]
         public bool Active { get; set; }
+
+        public TaskBeerViewModel()
+        {
+            Active = true;
+        }
     }
 }
