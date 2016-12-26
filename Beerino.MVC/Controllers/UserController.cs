@@ -68,6 +68,12 @@ namespace Beerino.MVC.Controllers
                 var userDomain = Mapper.Map<UserViewModel, User>(user);
                 _userApp.Add(userDomain);
 
+                var claimsIdentity = User.Identity as ClaimsIdentity;
+
+                int userId = _userApp.GetIdByEmail(user.Email);
+
+                claimsIdentity.AddClaim(new Claim("user.id", userId.ToString()));
+
                 RedirectToAction("Index");
             }
 

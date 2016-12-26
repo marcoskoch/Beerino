@@ -5,6 +5,7 @@ using Beerino.MVC.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Web.Mvc;
 
@@ -48,10 +49,20 @@ namespace Beerino.MVC.Controllers
         [Authorize]
         public ActionResult Create()
         {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var EmailAddress = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+            int userId = _userApp.GetIdByEmail(EmailAddress);
+
             ViewBag.UserID = new SelectList(_userApp.GetAll(), "UserID", "Name");
             ViewBag.BeerID = new SelectList(_beerApp.GetAll(), "BeerID", "Name");
 
-            return View();
+            var beerino = new BeerinoUserViewModel()
+            {
+                Active = true,
+                UserID = userId
+            };
+
+            return View(beerino);
         }
 
         // POST: BeerinoUser/Create
