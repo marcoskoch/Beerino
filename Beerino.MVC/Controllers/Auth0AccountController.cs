@@ -46,9 +46,13 @@ namespace Beerino.MVC.Controllers
             var userLogado = CreateIdentity(externalIdentity);
             var EmailAddress = userLogado.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
 
-            int user = _userApp.GetIdByEmail(EmailAddress);
+            int user = _userApp.GetIdByEmail("asdf");
 
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, userLogado);
+
+            if (user == 0)            
+                return RedirectToAction("Create", "User");
+            
             return RedirectToLocal(returnUrl);
         }
 
