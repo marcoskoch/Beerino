@@ -22,5 +22,10 @@ namespace Beerino.Domain.Services
         {
             return taskBeer.Where(t => t.NextTaskBeer(t, beerId, order)).FirstOrDefault();
         }
+
+        public IEnumerable<TaskBeer> getTasksByBeerID(IEnumerable<TaskBeer> tasksBeer, int beerID)
+        {
+            return tasksBeer.Where(t => t.TasksByBeerID(beerID));
+        }
     }
 }

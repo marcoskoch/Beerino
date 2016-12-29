@@ -20,9 +20,9 @@ namespace TaskBeerino.MVC.Controllers
 
         // GET: TaskBeer
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            var taskBeerModelView = Mapper.Map<IEnumerable<TaskBeer>, IEnumerable<TaskBeerViewModel>>(_taskBeerApp.GetAll());
+            var taskBeerModelView = Mapper.Map<IEnumerable<TaskBeer>, IEnumerable<TaskBeerViewModel>>(_taskBeerApp.getTasksByBeerID(id));
 
             return View(taskBeerModelView);
         }

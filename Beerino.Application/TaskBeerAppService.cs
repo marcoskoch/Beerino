@@ -1,4 +1,6 @@
-﻿using Beerino.Application.Interface;
+﻿using System;
+using System.Collections.Generic;
+using Beerino.Application.Interface;
 using Beerino.Domain.Entities;
 using Beerino.Domain.Interfaces.Services;
 
@@ -17,6 +19,11 @@ namespace Beerino.Application
         public TaskBeer getNextTaskBeer(int beerId, int actualTaskBeerOrdem)
         {
             return _taskBeerService.getNextTaskBeer(_taskBeerService.GetAll(), beerId, actualTaskBeerOrdem);
+        }
+
+        public IEnumerable<TaskBeer> getTasksByBeerID(int beerId)
+        {
+            return _taskBeerService.getTasksByBeerID(_taskBeerService.GetAll(), beerId);
         }
     }
 }

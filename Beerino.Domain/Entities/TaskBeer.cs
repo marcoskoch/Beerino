@@ -13,5 +13,10 @@
         {
             return taskBeer.Order == (ordemTask + 1) && taskBeer.BeerID == beerId;
         }
+
+        public bool TasksByBeerID(int beerID)
+        {
+            return this.BeerID == beerID;
+        }
     }
 }
