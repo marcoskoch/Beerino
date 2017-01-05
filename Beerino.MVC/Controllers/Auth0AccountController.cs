@@ -47,13 +47,13 @@ namespace Beerino.MVC.Controllers
             var EmailAddress = userLogado.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
 
             int userId = _userApp.GetIdByEmail(EmailAddress);
-                        
+
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, userLogado);
 
-            if (userId == 0)            
-                return RedirectToAction("Create", "User");
-
             userLogado.AddClaim(new Claim("user.id", userId.ToString()));
+
+            if (userId == 0)
+                return RedirectToAction("Create", "User");
 
             return RedirectToLocal(returnUrl);
         }

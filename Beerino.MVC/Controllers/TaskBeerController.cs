@@ -57,7 +57,7 @@ namespace TaskBeerino.MVC.Controllers
                 var taskBeerDomain = Mapper.Map<TaskBeerViewModel, TaskBeer>(taskBeer);
                 _taskBeerApp.Add(taskBeerDomain);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index/" + taskBeerDomain.BeerID);
             }
 
             ViewBag.BeerID = new SelectList(_beerApp.GetAll(), "BeerID", "Name", taskBeer.BeerID);
@@ -113,9 +113,10 @@ namespace TaskBeerino.MVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var taskBeer = _taskBeerApp.GetById(id);
+            int beerId = taskBeer.BeerID;
             _taskBeerApp.Remove(taskBeer);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index/" + beerId);
         }
     }
 }

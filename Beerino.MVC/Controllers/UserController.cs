@@ -73,7 +73,7 @@ namespace Beerino.MVC.Controllers
 
                 claimsIdentity.AddClaim(new Claim("user.id", userId.ToString()));
 
-                RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(user);

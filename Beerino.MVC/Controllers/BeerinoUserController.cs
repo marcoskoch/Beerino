@@ -66,7 +66,9 @@ namespace Beerino.MVC.Controllers
             if (ModelState.IsValid)
             {
                 var claimsIdentity = User.Identity as ClaimsIdentity;
-                var userId = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "user.id")?.Value;
+                var EmailAddress = claimsIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+                int userId = _userApp.GetIdByEmail(EmailAddress);
+
                 beerino.UserID = Convert.ToInt32(userId);
 
                 var beerinoUserDomain = Mapper.Map<BeerinoUserViewModel, BeerinoUser>(beerino);
@@ -139,9 +141,9 @@ namespace Beerino.MVC.Controllers
         public ActionResult getTaskBeer(string id)
         {
             /*
-             * Recebe parametros do seguinte formato BeerinoID-TaskAtualID
+             * Recebe parametros do seguinte formato BeerinoID-TaskOrder (se não tiver processo enviar 0)
              * http://localhost:53662/BeerinoUser/getTaskBeer/1-0
-             *  Dar split no data, separar BeerinoUserId e TaskAtual;
+             *  Dar split no data, separar BeerinoUserId e TaskOrder;
              *  Se TaskAtual for 0, busca primeira Task da ordem
              *  Se não buscar proxima task depois da taskatual
              *  Se não tiver cerveja cadastrada solicitar cadastro
@@ -167,8 +169,8 @@ namespace Beerino.MVC.Controllers
                 return Content("Fim dos Processos");
             }
 
-            // TaskId/Tempo/TemperaturaMinima/TemperaturaMaxima
-            return Content($"{task.TaskBeerID}/{TimeSpan.FromMinutes(task.Time).TotalMilliseconds}/{task.Temperature - 2}/{task.Temperature + 2}");
+            // TaskOrder/Tempo/TemperaturaMinima/TemperaturaMaxima
+            return Content($"{task.Order}/{TimeSpan.FromMinutes(task.Time).TotalMilliseconds}/{task.Temperature - 2}/{task.Temperature + 2}");
         }
 
         public ActionResult setTemperature(string id)

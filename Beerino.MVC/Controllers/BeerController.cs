@@ -56,7 +56,9 @@ namespace Beerino.MVC.Controllers
             if (ModelState.IsValid)
             {
                 var claimsIdentity = User.Identity as ClaimsIdentity;
-                var userId = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "user.id")?.Value;
+                var EmailAddress = claimsIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+                int userId = _userApp.GetIdByEmail(EmailAddress);
+
                 beer.UserID = Convert.ToInt32(userId);
 
                 var beerDomain = Mapper.Map<BeerViewModel, Beer>(beer);
