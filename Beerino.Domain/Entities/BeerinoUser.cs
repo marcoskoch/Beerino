@@ -9,5 +9,10 @@
         public int? BeerID { get; set; }
         public virtual Beer Beer { get; set; }
         public int ActualTemperature { get; set; }
+
+        public bool BeerinoByUser(int id)
+        {
+            return this.UserID == id;
+        }
     }
 }

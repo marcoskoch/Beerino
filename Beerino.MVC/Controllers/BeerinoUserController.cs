@@ -30,7 +30,11 @@ namespace Beerino.MVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var beerinoUserViewModel = Mapper.Map<IEnumerable<BeerinoUser>, IEnumerable<BeerinoUserViewModel>>(_beerinoUserApp.GetAll());
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var EmailAddress = claimsIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+            int userId = _userApp.GetIdByEmail(EmailAddress);
+
+            var beerinoUserViewModel = Mapper.Map<IEnumerable<BeerinoUser>, IEnumerable<BeerinoUserViewModel>>(_beerinoUserApp.getBeerinoByUser(userId));
 
             return View(beerinoUserViewModel);
         }
@@ -175,10 +179,26 @@ namespace Beerino.MVC.Controllers
 
         public ActionResult setTemperature(string id)
         {
-            /* Adiciona a temperatura atual do Beerino 
-             * http://localhost:53662/BeerinoUser/getTaskBeer/1-0
+            /* Adiciona a temperatura atual do Beerino setTemperature/idBeerino-temperatura
+             * http://localhost:53662/BeerinoUser/setTemperature/1-0
              */
-            return Content("");
+            try
+            {
+                var listStrLineElements = id.Split('-').ToList();
+
+                TaskBeer task = new TaskBeer();
+                var beerino = _beerinoUserApp.GetById(Convert.ToInt32(listStrLineElements[0]));
+                beerino.ActualTemperature = Convert.ToInt32(listStrLineElements[1]);
+
+                _beerinoUserApp.Update(beerino);
+            }
+            catch (Exception)
+            {
+
+                return Content("Error");
+            }            
+
+            return Content("Success");
         }
     }
 }
